@@ -23,11 +23,28 @@ categories: [Mapas, MDS]
     box-shadow: 0 0 15px rgba(0,0,0,0.2);
     border-radius: 5px;
   }
+  p {
+    text-align: justify;
+    text-indent: 2em;
+  }
+  
 </style>
 
-Este é um modelo de terreno em dois tons da cidade de Goiânia feito a partir das imagens do satélite Copernicus. Explore as camadas disponíveis:
+<p>
+    Neste projeto, utilizamos imagens do projeto Copernicus para criar um MDT da cidade de Goiânia. 
+    Este mapa não apenas exemplifica o potencial da tecnologia de sensoriamento remoto, mas também 
+    demonstra sua aplicabilidade no planejamento urbano e manejo de áreas. Processando os dados, 
+    organizando cada parte e utilizando ferramentas de código aberto, criei um mapa interativo 
+    para você visualizar o projeto e ter uma ideia de como faço análises espaciais.
+</p>
+
+<p>
+    Modelo de terreno da cidade de Goiânia feito a partir das imagens do satélite Copernicus. 
+    Explore as camadas disponíveis:
+</p>
 
 <div id="map"></div>
+
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
