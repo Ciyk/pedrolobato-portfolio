@@ -1,0 +1,3 @@
+gdal2tiles.py -z 0-15 -w leaflet "C:\Users\lobat\pedrolobato-portfolio\_map-resources\mds_goiania\MDE_OpenTopografy_Copernicus_30M.tif" "C:\Users\lobat\pedrolobato-portfolio\_map-resources\mds_goiania\MDE_OpenTopografy_Copernicus_30M_folder"
+
+gdal2tiles.py -z 0-15 -w leaflet "C:\Users\lobat\pedrolobato-portfolio\_map-resources\mds_goiania\Recortado_mascara.tif" "C:\Users\lobat\pedrolobato-portfolio\_map-resources\mds_goiania\Recortado_mascara_folder"
