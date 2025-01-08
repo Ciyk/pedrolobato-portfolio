@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="http://localhost:4000/pedrolobato-portfolio/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/pedrolobato-portfolio/" rel="alternate" type="text/html" /><updated>2025-01-06T09:53:33-03:00</updated><id>http://localhost:4000/pedrolobato-portfolio/feed.xml</id><subtitle>Developer / Estudante de Engenharia Cartografica de de Agrimensura. Confira meus projetos!</subtitle><entry><title type="html">Analise do terreno de Goiânia usando MDE do satélite Copernicus!</title><link href="http://localhost:4000/pedrolobato-portfolio/mapas/mds/2024/11/23/modelo-superficie-goiania.html" rel="alternate" type="text/html" title="Analise do terreno de Goiânia usando MDE do satélite Copernicus!" /><published>2024-11-23T13:36:58-03:00</published><updated>2024-11-23T13:36:58-03:00</updated><id>http://localhost:4000/pedrolobato-portfolio/mapas/mds/2024/11/23/modelo-superficie-goiania</id><content type="html" xml:base="http://localhost:4000/pedrolobato-portfolio/mapas/mds/2024/11/23/modelo-superficie-goiania.html"><![CDATA[<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="http://localhost:4000/pedrolobato-portfolio/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/pedrolobato-portfolio/" rel="alternate" type="text/html" /><updated>2025-01-07T21:40:02-03:00</updated><id>http://localhost:4000/pedrolobato-portfolio/feed.xml</id><subtitle>Developer / Estudante de Engenharia Cartografica de de Agrimensura. Confira meus projetos!</subtitle><entry><title type="html">Analise do terreno de Goiânia usando MDE do satélite Copernicus!</title><link href="http://localhost:4000/pedrolobato-portfolio/geospatial/analysis/2024/11/23/modelo-superficie-goiania.html" rel="alternate" type="text/html" title="Analise do terreno de Goiânia usando MDE do satélite Copernicus!" /><published>2024-11-23T00:00:00-03:00</published><updated>2024-11-23T00:00:00-03:00</updated><id>http://localhost:4000/pedrolobato-portfolio/geospatial/analysis/2024/11/23/modelo-superficie-goiania</id><content type="html" xml:base="http://localhost:4000/pedrolobato-portfolio/geospatial/analysis/2024/11/23/modelo-superficie-goiania.html"><![CDATA[<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 
@@ -20,7 +20,6 @@
     text-align: justify;
     text-indent: 2em;
   }
-  
 </style>
 
 <p class="texto">
@@ -40,18 +39,21 @@
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
+  // Defina a variável baseurl
+  var baseurl = "{{ site.baseurl }}";
+
   // Inicializa o mapa
   var map = L.map('map').setView([-16.6789, -49.2539], 10);
 
   // Define as camadas de tiles
-  var mdeLayer = L.tileLayer('{{ site.baseurl }}/_map-resources/mds_goiania/MDE_OpenTopografy_Copernicus_30M_folder/{z}/{x}/{y}.png', {
+  var mdeLayer = L.tileLayer(baseurl + '/_map-resources/mds_goiania/MDE_OpenTopografy_Copernicus_30M_folder/{z}/{x}/{y}.png', {
     maxZoom: 15,
     minZoom: 0,
     tms: true,
     attribution: 'Mapa criado por Pedro Lobato'
   });
 
-  var analiseLayer = L.tileLayer('{{ site.baseurl }}/_map-resources/mds_goiania/Recortado_mascara_folder/{z}/{x}/{y}.png', {
+  var analiseLayer = L.tileLayer(baseurl + '/_map-resources/mds_goiania/Recortado_mascara_folder/{z}/{x}/{y}.png', {
     maxZoom: 15,
     minZoom: 0,
     tms: true,
@@ -90,7 +92,7 @@ document.addEventListener('DOMContentLoaded', function() {
   geojsonLayer.addTo(map);  // Já inicia com os contornos visíveis
 
   // Faz o carregamento assíncrono do GeoJSON
-  fetch('{{ site.baseurl }}/_map-resources/mds_goiania/Contornos20M.geojson')
+  fetch(baseurl + '/_map-resources/mds_goiania/Contornos20M.geojson')
     .then(response => response.json())
     .then(data => {
       geojsonLayer.addData(data);
@@ -98,4 +100,4 @@ document.addEventListener('DOMContentLoaded', function() {
     })
     .catch(error => console.error('Erro ao carregar o GeoJSON:', error));
 });
-</script>]]></content><author><name></name></author><category term="Mapas" /><category term="MDS" /><summary type="html"><![CDATA[]]></summary></entry></feed>
+</script>]]></content><author><name></name></author><category term="geospatial" /><category term="analysis" /><summary type="html"><![CDATA[]]></summary></entry></feed>

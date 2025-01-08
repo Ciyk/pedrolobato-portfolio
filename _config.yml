@@ -23,7 +23,7 @@ description: >- # this means to ignore newlines until "baseurl:"
   Developer / Estudante de Engenharia Cartografica de de Agrimensura. Confira meus projetos!
 baseurl: "/pedrolobato-portfolio" # the subpath of your site, e.g. /blog
 url: "https://ciyk.github.io" # the base hostname & protocol for your site, e.g. http://example.com
-github_username:  Github
+github_username:  Ciyk
 orcid_url: https://orcid.org/0009-0008-0391-3581
 
 # Build settings

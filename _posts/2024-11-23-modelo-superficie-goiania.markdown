@@ -1,8 +1,8 @@
 ---
 layout: post
 title: "Analise do terreno de Goiânia usando MDE do satélite Copernicus!"
-date: 2024-11-23 13:36:58 -0300
-categories: [Mapas, MDS]
+date: 2024-11-23
+categories: [geospatial, analysis]
 ---
 
 {% raw %}
@@ -27,7 +27,6 @@ categories: [Mapas, MDS]
     text-align: justify;
     text-indent: 2em;
   }
-  
 </style>
 
 <p class="texto">
@@ -45,21 +44,23 @@ categories: [Mapas, MDS]
 
 <div id="map"></div>
 
-
 <script>
 document.addEventListener('DOMContentLoaded', function() {
+  // Defina a variável baseurl
+  var baseurl = "{{ site.baseurl }}";
+
   // Inicializa o mapa
   var map = L.map('map').setView([-16.6789, -49.2539], 10);
 
   // Define as camadas de tiles
-  var mdeLayer = L.tileLayer('{{ site.baseurl }}/_map-resources/mds_goiania/MDE_OpenTopografy_Copernicus_30M_folder/{z}/{x}/{y}.png', {
+  var mdeLayer = L.tileLayer(baseurl + '/_map-resources/mds_goiania/MDE_OpenTopografy_Copernicus_30M_folder/{z}/{x}/{y}.png', {
     maxZoom: 15,
     minZoom: 0,
     tms: true,
     attribution: 'Mapa criado por Pedro Lobato'
   });
 
-  var analiseLayer = L.tileLayer('{{ site.baseurl }}/_map-resources/mds_goiania/Recortado_mascara_folder/{z}/{x}/{y}.png', {
+  var analiseLayer = L.tileLayer(baseurl + '/_map-resources/mds_goiania/Recortado_mascara_folder/{z}/{x}/{y}.png', {
     maxZoom: 15,
     minZoom: 0,
     tms: true,
@@ -98,7 +99,7 @@ document.addEventListener('DOMContentLoaded', function() {
   geojsonLayer.addTo(map);  // Já inicia com os contornos visíveis
 
   // Faz o carregamento assíncrono do GeoJSON
-  fetch('{{ site.baseurl }}/_map-resources/mds_goiania/Contornos20M.geojson')
+  fetch(baseurl + '/_map-resources/mds_goiania/Contornos20M.geojson')
     .then(response => response.json())
     .then(data => {
       geojsonLayer.addData(data);
